@@ -9,7 +9,7 @@ export default function Navbar(props: {
   };
 }) {
   return (
-    <nav className="flex items-center justify-between absolute top-0 py-4 px-16 w-full z-50">
+    <nav className="flex items-center justify-between absolute top-0 py-4 px-16 w-full z-50 bg-linear-to-b from-black/75 to-black/0 rounded-lg">
       <Link href="/">
         <Image src="/logo.png" width={0} height={0} alt="UAEYFC Logo" />
       </Link>
