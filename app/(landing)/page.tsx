@@ -18,15 +18,15 @@ export default function HomePage() {
           Empowering young people from every walk of life
         </h1>
         <div className="z-0 flex gap-4">
-          <button className="rounded-lg p-4 border hover:bg-white hover:text-black transition-all cursor-pointer">
+          <button>
             LEARN MORE
           </button>
-          <button className="rounded-lg p-4 border hover:bg-white hover:text-black transition-all cursor-pointer">
+          <button>
             GET IN TOUCH
           </button>
         </div>
       </section>
-      <section className="w-full h-dvh flex flex-col gap-10 justify-center items-start bg-white px-16 py-32">
+      <section id='about' className="w-full h-dvh flex flex-col gap-10 justify-center items-start bg-white px-16 py-32">
         <h1 className="text-4xl text-black font-semibold">ABOUT US</h1>
         <div className="flex gap-10 justify-center items-center">
           <div className="w-1/2 h-full flex flex-col justify-start items-start gap-4">

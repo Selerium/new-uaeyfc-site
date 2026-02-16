@@ -3,6 +3,11 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  button {
+    @apply rounded-lg p-4 border hover:bg-white hover:text-black transition-all cursor-pointer;
+  }
+
 }
 
 @media (prefers-color-scheme: dark) {

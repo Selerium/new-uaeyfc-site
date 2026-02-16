@@ -1,5 +1,8 @@
+'use client';
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Navbar(props: {
   paths: { name: string; link: string }[];
@@ -8,8 +11,22 @@ export default function Navbar(props: {
     link: string;
   };
 }) {
+  const [flipColor, setFlipColor] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      console.log(window.scrollY)
+      console.log('---')
+      console.log(window.innerHeight)
+      setFlipColor(window.scrollY > (window.innerHeight - 25));
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <nav className="fixed flex items-center justify-between absolute top-0 py-4 px-16 w-full z-50 bg-linear-to-b from-black/75 to-black/0 rounded-lg">
+    <nav className={`fixed flex items-center justify-between top-0 py-4 px-16 w-full z-50 rounded-lg ${flipColor ? 'text-black' : 'text-white'}`}>
       <Link href="/">
         <Image src="/logo.png" width={51} height={0} alt="UAEYFC Logo" />
       </Link>

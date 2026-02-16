@@ -10,11 +10,11 @@ export default function HomeLayout({
       <body>
         <Navbar
           paths={[
-            { name: "ABOUT", link: "/" },
+            { name: "ABOUT", link: "/#about" },
             { name: "PROGRAMS", link: "/programs" },
             { name: "CONTACT", link: "/contact" },
           ]}
-          sidebutton={{ name: "Blog", link: "/blog" }}
+          sidebutton={{ name: "BLOG", link: "/blog" }}
         />
         {children}
       </body>
