@@ -12,13 +12,15 @@ export default function Navbar(props: {
   };
 }) {
   const [flipColor, setFlipColor] = useState(false);
+  const [chosenElement, setChosenElement] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      console.log(window.scrollY)
-      console.log('---')
-      console.log(window.innerHeight)
       setFlipColor(window.scrollY > (window.innerHeight - 25));
+      setChosenElement((window.scrollY) / window.innerHeight);
+      console.log(window.scrollY - 25);
+      console.log(window.innerHeight);
+      console.log(chosenElement);
     };
     
     window.addEventListener('scroll', handleScroll);
@@ -31,8 +33,8 @@ export default function Navbar(props: {
         <Image src="/logo.png" width={51} height={0} alt="UAEYFC Logo" />
       </Link>
       <div className="flex gap-10">
-        {props.paths.map((path) => (
-          <Link key={path.name} href={path.link}>{path.name}</Link>
+        {props.paths.map((path, idx) => (
+          <Link className={idx + 1 == chosenElement ? 'font-semibold' : 'font-normal'} key={path.name} href={path.link}>{path.name}</Link>
         ))}
       </div>
       {props.sidebutton && (
