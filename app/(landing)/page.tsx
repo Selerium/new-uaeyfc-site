@@ -1,4 +1,5 @@
 import EmblaCarousel from "@/components/carousel/carousel";
+import ContactForm from "@/components/form/ContactForm";
 import { Church, Globe, Heart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -147,9 +148,9 @@ export default function HomePage() {
         className="w-full h-dvh flex flex-col gap-10 justify-start items-center bg-neutral-100 px-16 py-32"
       >
         <h1 className="text-4xl text-black font-semibold">PROGRAMS</h1>
-        <div className="flex justify-start items-center overflow-x-scroll gap-10 w-full h-full text-black relative ">
+        <div className="flex justify-start items-center overflow-x-scroll gap-10 w-full h-full text-black relative">
           {programsInfo.map((program) => (
-            <div className="flex flex-col rounded-lg min-w-1/4 h-11/12 border border-neutral-300 overflow-hidden bg-white transition-all hover:shadow-xl hover:-translate-y-2">
+            <div key={program.name} className="flex flex-col rounded-lg min-w-1/4 h-11/12 border border-neutral-300 overflow-hidden bg-white transition-all hover:shadow-xl hover:-translate-y-2">
               <Image
                 src={program.imageUrl}
                 alt={program.imageAlt}
@@ -181,6 +182,14 @@ export default function HomePage() {
             </div>
           ))}
         </div>
+      </section>
+      <section
+        id="contact"
+        className="w-full h-dvh flex flex-col gap-4 justify-start items-center bg-neutral-100 px-16 py-32"
+      >
+        <h1 className="text-4xl text-black font-semibold">CONTACT US</h1>
+        <p className="text-black">Fill out the form and we&apos;ll get in touch</p>
+        <ContactForm />
       </section>
     </div>
   );
