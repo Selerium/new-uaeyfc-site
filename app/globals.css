@@ -5,17 +5,10 @@
   --foreground: #171717;
 
   button {
-    @apply rounded-lg p-4 border hover:bg-white hover:text-black transition-all cursor-pointer;
+    @apply rounded-lg p-4 border border-neutral-300 hover:bg-white hover:text-black transition-all cursor-pointer font-semibold;
   }
 }
 
-::-webkit-scrollbar-button {
-  display: none;
-}
-
-::-webkit-scrollbar {
-  display: none;
-}
 
 @media (prefers-color-scheme: dark) {
   :root {

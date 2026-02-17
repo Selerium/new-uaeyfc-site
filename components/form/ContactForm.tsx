@@ -7,10 +7,11 @@ export default function ContactForm() {
   const [lastname, setLastname] = useState<string>('');
   const [whatsapp, setWhatsapp] = useState<string>('');
   const [email, setEmail] = useState<string>('');
+  const [message, setMessage] = useState<string>('');
 
   return (
     <form className="flex flex-wrap gap-4 w-1/3 max-w-2xl rounded-lg border border-neutral-300 p-4 bg-white text-black">
-      <div className="flex flex-col gap-2 grow basis-1 max-w-1/2">
+      <div className="flex flex-col gap-2 grow basis-1/3 max-w-1/2">
         <label>First Name</label>
         <input
           value={firstname}
@@ -21,7 +22,7 @@ export default function ContactForm() {
           required
         />
       </div>
-      <div className="flex flex-col gap-2 grow basis-1 max-w-1/2">
+      <div className="flex flex-col gap-2 grow basis-1/3 max-w-1/2">
         <label>Last Name</label>
         <input
           value={lastname}
@@ -32,7 +33,7 @@ export default function ContactForm() {
           required
         />
       </div>
-      <div className="flex flex-col gap-2 grow basis-1 max-w-1/2">
+      <div className="flex flex-col gap-2 grow basis-1/3 max-w-1/2">
         <label>WhatsApp (with country code)</label>
         <input
           value={whatsapp}
@@ -46,8 +47,8 @@ export default function ContactForm() {
           required
         />
       </div>
-      <div className="flex flex-col gap-2 grow basis-1 max-w-1/2">
-        <label>Last Name</label>
+      <div className="flex flex-col gap-2 grow basis-1/3 max-w-1/2">
+        <label>Email</label>
         <input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -57,6 +58,18 @@ export default function ContactForm() {
           required
         />
       </div>
+      <div className="flex flex-col gap-2 w-full">
+        <label>Write Your Message</label>
+        <textarea
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          className="resize-none border border-neutral-300 rounded-lg p-2 font-semibold user-invalid:border-red-400"
+          placeholder="Your message..."
+          required
+          rows={8}
+        />
+      </div>
+      <button type='submit' className="w-full bg-black text-white">SUBMIT</button>
     </form>
   );
 }
