@@ -40,7 +40,7 @@ export default function Programs() {
       name: "TANGIBLE SUPPORT",
       description:
         "A podcast created with the intention to provide tangible resources for young people who grew up and/or live in the Gulf pertaining to their spiritual and multicultural needs and realities",
-      imageUrl: "/test1.png",
+      imageUrl: "/tangible-support.jpg",
       imageAlt: "",
       pageLink: "/event-name",
       active: true,
@@ -91,6 +91,7 @@ export default function Programs() {
         scrollLeft = slider.scrollLeft;
       });
       slider.addEventListener("mouseup", () => (isDown = false));
+      slider.addEventListener("mouseleave", () => (isDown = false));
       slider.addEventListener("mousemove", (e) => {
         if (!isDown) return;
         e.preventDefault();
@@ -101,7 +102,7 @@ export default function Programs() {
   });
 
   return (
-    <div className="select-none cursor-grab active:cursor-grabbing scroll-container flex justify-start items-center overflow-x-hidden gap-10 w-full h-auto text-black relative">
+    <div className="select-none cursor-grab active:cursor-grabbing scroll-container flex justify-start items-center overflow-x-hidden gap-10 w-full h-fit py-20 text-black relative">
       {programsInfo.map((program) => (
         <div
           key={program.name}
@@ -111,7 +112,7 @@ export default function Programs() {
             <Image
               src={program.imageUrl}
               alt={program.imageAlt}
-              className="w-full aspect-video object-cover"
+              className="w-full aspect-video object-cover select-none"
               fill
             />
           </div>

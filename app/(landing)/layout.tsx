@@ -11,9 +11,9 @@ export default function HomeLayout({
       <body>
         <Navbar
           paths={[
-            { name: "ABOUT", link: "#about" },
-            { name: "PROGRAMS", link: "#programs" },
-            { name: "CONTACT", link: "/contact" },
+            { name: "ABOUT", link: "/about" },
+            { name: "PROGRAMS", link: "/programs" },
+            { name: "CONTACT", link: "#contact" },
           ]}
           sidebutton={{ name: "BLOG", link: "/blog" }}
         />

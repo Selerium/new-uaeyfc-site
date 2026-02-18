@@ -22,15 +22,15 @@ export default function HomePage() {
           Empowering young people from every walk of life
         </h1>
         <div className="z-0 flex gap-4">
-          <button>LEARN MORE</button>
-          <button>GET IN TOUCH</button>
+          <Link className="button" href='#about'>LEARN MORE</Link>
+          <Link className="button" href='#contact'>GET IN TOUCH</Link>
         </div>
       </section>
       <section
         id="about"
         className="w-full h-dvh min-h-fit flex flex-col gap-10 justify-center items-start bg-neutral-100 px-16 py-32 "
       >
-        <h1 className="text-4xl text-black font-semibold">WHY UAEYFC?</h1>
+        <h1 className="text-4xl text-black font-semibold">WHAT WE DO</h1>
         <div className="flex gap-10 justify-center items-center">
           <div className="w-1/2 h-full flex flex-col justify-start items-start gap-4">
             <p className="text-lg text-black w-full">
@@ -74,7 +74,7 @@ export default function HomePage() {
       </section>
       <section
         id="programs"
-        className="w-full h-dvh min-h-fit flex flex-col gap-10 justify-start items-center bg-neutral-100 px-16 py-32 "
+        className="w-full h-fit min-h-fit flex flex-col gap-10 items-center bg-neutral-100 px-16"
       >
         <div className="flex flex-col justify-center items-center gap-4">
           <h1 className="text-4xl text-black font-semibold">PROGRAMS</h1>
@@ -84,25 +84,31 @@ export default function HomePage() {
       </section>
       <section
         id="contact"
-        className="w-full h-dvh min-h-fit flex gap-4 justify-start items-center bg-neutral-100 px-16 py-32 "
+        className="w-full h-dvh min-h-fit flex flex-col gap-4 justify-center items-center px-16 py-32 relative bg-[url('/cross.jpg')] bg-fixed bg-cover bg-center"
+        
       >
-        <div className="flex flex-col gap-4 justify-center items-center w-1/2">
-          <h1 className="text-4xl text-black font-semibold">CONTACT US</h1>
-          <p className="text-black">
+        <div className="flex flex-col gap-4 justify-center items-center w-full text-white">
+          <h1 className="text-4xl font-semibold">CONTACT US</h1>
+          <p className="">
             Fill out the form and we&apos;ll get in touch
           </p>
-          <ContactForm />
         </div>
-        <div className="flex flex-col gap-4 justify-center items-center w-1/2 h-full rounded-lg overflow-clip">
-          <Image
-            src="/test1.png"
-            alt=""
-            width={0}
-            height={0}
-            className="w-full h-full"
-          />
-        </div>
+        <ContactForm />
       </section>
+      <footer className="h-48 px-16 py-8 border-t border-neutral-300 bg-neutral-800 text-white flex justify-between">
+        <div>
+          <Image src="/logo.png" width={200} height={0} className={`w-48 invert grayscale-100`} alt="UAEYFC Logo" />
+        </div>
+        <div className="flex flex-col gap-2 w-1/12">
+          <Link href='/about' className="font-semibold">About</Link>
+          <Link href='/programs' className="font-semibold">Programs</Link>
+          <Link href='/blog' className="font-semibold">Blog</Link>
+        </div>
+        <div className="flex flex-col gap-2 w-1/2">
+          <Link href='https://instagram.com/uaeyfc' className="font-semibold">Instagram</Link>
+          <Link href='/about' className="font-semibold">Facebook</Link>
+        </div>
+      </footer>
     </div>
   );
 }
