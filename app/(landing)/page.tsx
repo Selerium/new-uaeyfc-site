@@ -1,83 +1,11 @@
 import EmblaCarousel from "@/components/carousel/carousel";
 import ContactForm from "@/components/form/ContactForm";
-import { Church, Globe, Heart } from "lucide-react";
+import Programs from "@/components/programsDisplay/Programs";
+import { Church, Globe, Heart, Instagram } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function HomePage() {
-  const programsInfo = [
-    {
-      name: "BIG WEEKEND",
-      description:
-        "Big Weekend is UAEYFC's annual youth conference, inviting teens and youth leaders from across the UAE for a weekend of worship, prayer, teachings and fellowship.",
-      imageUrl: "/test1.png",
-      imageAlt: "A picture of Big Weekend",
-      pageLink: "/big-weekend",
-      active: true,
-      nextDate: "NOV 2026",
-    },
-    {
-      name: "LAUNCH CONFERENCE",
-      description:
-        "Launch is an event that helps graduating students with the transition from high school to university and beyond. It is a significant event to help facilitate the transition from teenage to adulthood.",
-      imageUrl: "/test1.png",
-      imageAlt: "",
-      pageLink: "/launch-conference",
-      active: true,
-      nextDate: "FEB 2027",
-    },
-    {
-      name: "OUTREACH JAPAN",
-      description:
-        "Outreach is an opportunity for young people to encounter mission work and gain experience in sharing their faith, all while serving the least reached who can thus have the chance to be exposed & encounter the Gospel.",
-      imageUrl: "/test1.png",
-      imageAlt: "",
-      pageLink: "/outreach-japan",
-      active: true,
-      nextDate: "JUL 2026",
-    },
-    {
-      name: "TANGIBLE SUPPORT",
-      description:
-        "A podcast created with the intention to provide tangible resources for young people who grew up and/or live in the Gulf pertaining to their spiritual and multicultural needs and realities",
-      imageUrl: "/test1.png",
-      imageAlt: "",
-      pageLink: "/event-name",
-      active: true,
-      nextDate: "SPRING 2026",
-    },
-    {
-      name: "EQUIP/EQUIP+",
-      description:
-        "Equip and Equip+ are youth leader training/retreat events that provide a space for youth leaders to be trained with ministry skills and be refreshed spiritually & mentally with leaders across the UAE.",
-      imageUrl: "/test1.png",
-      imageAlt: "",
-      pageLink: "/event-name",
-      active: true,
-      nextDate: "APRIL 2026",
-    },
-    {
-      name: "ILLUMINATE",
-      description:
-        "A one day event for teens/youth to practically grow in their faith while developing Christian community outside of their usual Christian environment.",
-      imageUrl: "/test1.png",
-      imageAlt: "",
-      pageLink: "/event-name",
-      active: false,
-      nextDate: "SEP 2026",
-    },
-    {
-      name: "TCK/CCK TRAINING",
-      description:
-        "Training events to educate about the TCK/CCK world, for parents to learn about its impact on their kids, and for youth to learn about how this environment affects their life & how to live through and around it.",
-      imageUrl: "/test1.png",
-      imageAlt: "",
-      pageLink: "/event-name",
-      active: false,
-      nextDate: "SEP 2026",
-    },
-  ];
-
   return (
     <div className="w-full h-fit">
       <section className="w-full h-dvh flex flex-col gap-10 justify-center items-center">
@@ -102,7 +30,7 @@ export default function HomePage() {
         id="about"
         className="w-full h-dvh flex flex-col gap-10 justify-center items-start bg-neutral-100 px-16 py-32"
       >
-        <h1 className="text-4xl text-black font-semibold">ABOUT US</h1>
+        <h1 className="text-4xl text-black font-semibold">WHY UAEYFC?</h1>
         <div className="flex gap-10 justify-center items-center">
           <div className="w-1/2 h-full flex flex-col justify-start items-start gap-4">
             <p className="text-lg text-black w-full">
@@ -136,8 +64,9 @@ export default function HomePage() {
           <div className="w-1/2 h-full flex flex-col justify-center items-center">
             <EmblaCarousel
               images={[
-                { alt: "image", url: "/test1.png" },
-                { alt: "image", url: "/test2.png" },
+                { alt: "A UAEYFC event photo", url: "/carousel-1.jpg" },
+                { alt: "A UAEYFC event photo", url: "/carousel-2.jpg" },
+                { alt: "A UAEYFC event photo", url: "/carousel-3.jpg" },
               ]}
             />
           </div>
@@ -147,49 +76,32 @@ export default function HomePage() {
         id="programs"
         className="w-full h-dvh flex flex-col gap-10 justify-start items-center bg-neutral-100 px-16 py-32"
       >
-        <h1 className="text-4xl text-black font-semibold">PROGRAMS</h1>
-        <div className="flex justify-start items-center overflow-x-scroll gap-10 w-full h-full text-black relative">
-          {programsInfo.map((program) => (
-            <div key={program.name} className="flex flex-col rounded-lg min-w-1/4 h-11/12 border border-neutral-300 overflow-hidden bg-white transition-all hover:shadow-xl hover:-translate-y-2">
-              <Image
-                src={program.imageUrl}
-                alt={program.imageAlt}
-                className="w-full"
-                width={0}
-                height={0}
-              />
-              <div className="flex flex-col p-4 justify-between h-full">
-                <div className="flex flex-col gap-3">
-                  <div className="flex justify-between items-center w-full">
-                    <p className="font-semibold text-2xl">{program.name}</p>
-                    <div className="flex gap-2 flex-wrap">
-                      <div
-                        className={`p-2 font-semibold rounded-lg ${program.active ? "bg-green-600" : "bg-neutral-600"} text-white`}
-                      >
-                        {program.active ? program.nextDate : "UPCOMING"}
-                      </div>
-                    </div>
-                  </div>
-                  <p>{program.description}</p>
-                </div>
-                <Link
-                  className="w-full text-center p-4 rounded-lg border border-neutral-300 hover:bg-black hover:text-white font-semibold transition-all"
-                  href={program.pageLink}
-                >
-                  LEARN MORE
-                </Link>
-              </div>
-            </div>
-          ))}
+        <div className="flex flex-col justify-center items-center gap-4">
+          <h1 className="text-4xl text-black font-semibold">PROGRAMS</h1>
+          <p className="text-black text-lg">See what we're up to in the region</p>
         </div>
+        <Programs />
       </section>
       <section
         id="contact"
-        className="w-full h-dvh flex flex-col gap-4 justify-start items-center bg-neutral-100 px-16 py-32"
+        className="w-full h-dvh flex gap-4 justify-start items-center bg-neutral-100 px-16 py-32"
       >
-        <h1 className="text-4xl text-black font-semibold">CONTACT US</h1>
-        <p className="text-black">Fill out the form and we&apos;ll get in touch</p>
-        <ContactForm />
+        <div className="flex flex-col gap-4 justify-center items-center w-1/2">
+          <h1 className="text-4xl text-black font-semibold">CONTACT US</h1>
+          <p className="text-black">
+            Fill out the form and we&apos;ll get in touch
+          </p>
+          <ContactForm />
+        </div>
+        <div className="flex flex-col gap-4 justify-center items-center w-1/2 h-full rounded-lg overflow-clip">
+          <Image
+            src="/test1.png"
+            alt=""
+            width={0}
+            height={0}
+            className="w-full h-full"
+          />
+        </div>
       </section>
     </div>
   );

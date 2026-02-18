@@ -17,7 +17,6 @@ export default function Navbar(props: {
   useEffect(() => {
     const handleScroll = () => {
       setFlipColor(window.scrollY > (window.innerHeight - 25));
-      setChosenElement((window.scrollY) / window.innerHeight);
       console.log(window.scrollY - 25);
       console.log(window.innerHeight);
       console.log(chosenElement);
@@ -28,9 +27,9 @@ export default function Navbar(props: {
   }, []);
 
   return (
-    <nav className={`fixed flex items-center justify-between top-0 py-4 px-16 w-full z-50 rounded-lg ${flipColor ? 'text-black' : 'text-white'}`}>
+    <nav className={`fixed flex items-center justify-between top-0 py-8 px-16 w-full z-50 ${flipColor ? 'text-black bg-white/75 backdrop-blur-2xl border-b border-neutral-300' : 'text-white'}`}>
       <Link href="/">
-        <Image src="/logo.png" width={51} height={0} alt="UAEYFC Logo" />
+        <Image src="/logo.png" width={200} height={0} className={`w-48 ${flipColor ? '' : 'invert-100 grayscale'}`} alt="UAEYFC Logo" />
       </Link>
       <div className="flex gap-10">
         {props.paths.map((path, idx) => (
@@ -38,7 +37,7 @@ export default function Navbar(props: {
         ))}
       </div>
       {props.sidebutton && (
-        <Link className="w-12" href={props.sidebutton.link}>{props.sidebutton.name}</Link>
+        <Link className="w-48 text-right" href={props.sidebutton.link}>{props.sidebutton.name}</Link>
       )}
     </nav>
   );

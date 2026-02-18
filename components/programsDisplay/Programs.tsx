@@ -1,0 +1,143 @@
+'use client';
+
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect } from "react";
+
+export default function Programs() {
+  const programsInfo = [
+    {
+      name: "BIG WEEKEND",
+      description:
+        "Big Weekend is UAEYFC's annual youth conference, inviting teens and youth leaders from across the UAE for a weekend of worship, prayer, teachings and fellowship.",
+      imageUrl: "/big-weekend.jpg",
+      imageAlt: "A picture of Big Weekend",
+      pageLink: "/big-weekend",
+      active: true,
+      nextDate: "NOV 2026",
+    },
+    {
+      name: "LAUNCH CONFERENCE",
+      description:
+        "Launch is an event that helps graduating students with the transition from high school to university and beyond. It is a significant event to help facilitate the transition from teenage to adulthood.",
+      imageUrl: "/launch-conf.jpg",
+      imageAlt: "",
+      pageLink: "/launch-conference",
+      active: true,
+      nextDate: "FEB 2027",
+    },
+    {
+      name: "OUTREACH JAPAN",
+      description:
+        "Outreach is an opportunity for young people to encounter mission work and gain experience in sharing their faith, all while serving the least reached who can thus have the chance to be exposed & encounter the Gospel.",
+      imageUrl: "/outreach-japan.jpg",
+      imageAlt: "",
+      pageLink: "/outreach-japan",
+      active: true,
+      nextDate: "JUL 2026",
+    },
+    {
+      name: "TANGIBLE SUPPORT",
+      description:
+        "A podcast created with the intention to provide tangible resources for young people who grew up and/or live in the Gulf pertaining to their spiritual and multicultural needs and realities",
+      imageUrl: "/test1.png",
+      imageAlt: "",
+      pageLink: "/event-name",
+      active: true,
+      nextDate: "SPRING 2026",
+    },
+    {
+      name: "EQUIP/EQUIP+",
+      description:
+        "Equip and Equip+ are youth leader training/retreat events that provide a space for youth leaders to be trained with ministry skills and be refreshed spiritually & mentally with leaders across the UAE.",
+      imageUrl: "/equip.jpg",
+      imageAlt: "",
+      pageLink: "/event-name",
+      active: true,
+      nextDate: "APRIL 2026",
+    },
+    {
+      name: "ILLUMINATE",
+      description:
+        "A one day event for teens/youth to practically grow in their faith while developing Christian community outside of their usual Christian environment.",
+      imageUrl: "/illuminate.jpg",
+      imageAlt: "",
+      pageLink: "/event-name",
+      active: false,
+      nextDate: "SEP 2026",
+    },
+    {
+      name: "TCK/CCK TRAINING",
+      description:
+        "Training events to educate about the TCK/CCK world, for parents to learn about its impact on their kids, and for youth to learn about how this environment affects their life & how to live through and around it.",
+      imageUrl: "/tck-cck.jpg",
+      imageAlt: "",
+      pageLink: "/event-name",
+      active: false,
+      nextDate: "SEP 2026",
+    },
+  ];
+
+  useEffect(() => {
+    const slider = window.document.querySelector(".scroll-container");
+    let isDown = false;
+    let startX: number;
+    let scrollLeft: number;
+
+    if (slider) {
+      slider.addEventListener("mousedown", (e) => {
+        isDown = true;
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+      });
+      slider.addEventListener("mouseup", () => (isDown = false));
+      slider.addEventListener("mousemove", (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        slider.scrollLeft = scrollLeft - (x - startX);
+      });
+    }
+  });
+
+  return (
+    <div className="select-none cursor-grab active:cursor-grabbing scroll-container flex justify-start items-center overflow-x-hidden gap-10 w-full h-full text-black relative">
+      {programsInfo.map((program) => (
+        <div
+          key={program.name}
+          className="flex flex-col rounded-lg min-w-1/4 h-11/12 border border-neutral-300 overflow-hidden bg-white transition-all hover:shadow-xl hover:-translate-y-2"
+        >
+          <div className="w-full aspect-video relative">
+            <Image
+              src={program.imageUrl}
+              alt={program.imageAlt}
+              className="w-full aspect-video object-cover"
+              fill
+            />
+          </div>
+          <div className="flex flex-col p-4 justify-between h-full">
+            <div className="flex flex-col gap-3">
+              <div className="flex justify-between items-center w-full">
+                <p className="select-none font-semibold text-2xl">{program.name}</p>
+                <div className="flex gap-2 flex-wrap">
+                  <div
+                    className={`select-none p-2 font-semibold rounded-lg ${program.active ? "bg-green-600" : "bg-neutral-600"} text-white`}
+                  >
+                    {program.active ? program.nextDate : "UPCOMING"}
+                  </div>
+                </div>
+              </div>
+              <p className="select-none">{program.description}</p>
+            </div>
+            <Link
+              className="select-none w-full text-center p-4 rounded-lg border border-neutral-300 hover:bg-black hover:text-white font-semibold transition-all"
+              href={program.pageLink}
+            >
+              LEARN MORE
+            </Link>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}

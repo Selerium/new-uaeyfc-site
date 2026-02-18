@@ -16,7 +16,8 @@ export default function EmblaCarousel(props: {
   const [selectedSnap, setSelectedSnap] = useState(0);
 
   const goTo = (index: number) => emblaApi?.scrollTo(index);
-  const setupSnaps = (api: typeof emblaApi) => setScrollSnaps(api?.scrollSnapList());
+  const setupSnaps = (api: typeof emblaApi) =>
+    setScrollSnaps(api?.scrollSnapList());
   const setActiveSnap = (api: typeof emblaApi) =>
     setSelectedSnap(api?.selectedScrollSnap() ?? 0);
 
@@ -33,20 +34,24 @@ export default function EmblaCarousel(props: {
 
   return (
     <div className="embla flex flex-col items-center gap-4 w-full">
-      <div className="embla__viewport overflow-hidden w-full rounded-lg" ref={emblaRef}>
+      <div
+        className="embla__viewport overflow-hidden w-full rounded-lg"
+        ref={emblaRef}
+      >
         <div className="embla__container flex touch-pan-y touch-pinch-zoom ">
           {props.images.map((image) => (
             <div
-              className="embla__slide grow-0 shrink-0 basis-full min-w-0"
+              className="embla__slide grow-0 shrink-0 basis-full min-w-0 w-full"
               key={image.url}
             >
-              <Image
-                className="embla_slide w-full h-full rounded-lg"
-                src={image.url}
-                width={0}
-                height={0}
-                alt={image.alt}
-              />
+              <div className="w-full relative aspect-video">
+                <Image
+                  className="embla_slide w-full h-full rounded-lg aspect-video object-cover"
+                  src={image.url}
+                  alt={image.alt}
+                  fill
+                />
+              </div>
             </div>
           ))}
         </div>
@@ -56,12 +61,13 @@ export default function EmblaCarousel(props: {
         {scrollSnaps.map((_, index) => (
           <div
             className={"cursor-pointer rounded-full w-4 h-4 border border-neutral-600 embla__dot".concat(
-              index === selectedSnap ? " embla__dot--selected bg-neutral-600" : "",
+              index === selectedSnap
+                ? " embla__dot--selected bg-neutral-600"
+                : "",
             )}
             key={index}
             onClick={() => goTo(index)}
-          >
-          </div>
+          ></div>
         ))}
       </div>
 
