@@ -1,4 +1,5 @@
 import Navbar from "@/components/navbar/navbar";
+import { jost } from "../layout";
 
 export default function HomeLayout({
   children,
@@ -6,7 +7,7 @@ export default function HomeLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={jost.className}>
       <body>
         <Navbar
           paths={[

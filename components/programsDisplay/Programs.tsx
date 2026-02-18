@@ -101,11 +101,11 @@ export default function Programs() {
   });
 
   return (
-    <div className="select-none cursor-grab active:cursor-grabbing scroll-container flex justify-start items-center overflow-x-hidden gap-10 w-full h-full text-black relative">
+    <div className="select-none cursor-grab active:cursor-grabbing scroll-container flex justify-start items-center overflow-x-hidden gap-10 w-full h-auto text-black relative">
       {programsInfo.map((program) => (
         <div
           key={program.name}
-          className="flex flex-col rounded-lg min-w-1/4 h-11/12 border border-neutral-300 overflow-hidden bg-white transition-all hover:shadow-xl hover:-translate-y-2"
+          className="flex flex-col rounded-lg min-w-1/4 min-h-fit border border-neutral-300 overflow-hidden bg-white transition-all hover:shadow-xl hover:-translate-y-2"
         >
           <div className="w-full aspect-video relative">
             <Image
@@ -115,7 +115,7 @@ export default function Programs() {
               fill
             />
           </div>
-          <div className="flex flex-col p-4 justify-between h-full">
+          <div className="flex flex-col p-4 justify-between h-64">
             <div className="flex flex-col gap-3">
               <div className="flex justify-between items-center w-full">
                 <p className="select-none font-semibold text-2xl">{program.name}</p>

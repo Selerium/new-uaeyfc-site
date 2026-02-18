@@ -8,7 +8,7 @@ import Link from "next/link";
 export default function HomePage() {
   return (
     <div className="w-full h-fit">
-      <section className="w-full h-dvh flex flex-col gap-10 justify-center items-center">
+      <section className="w-full h-dvh min-h-fit flex flex-col gap-10 justify-center items-center" >
         <video
           className="fixed -z-10 w-full h-full object-cover pointer-events-none opacity-50"
           autoPlay
@@ -28,7 +28,7 @@ export default function HomePage() {
       </section>
       <section
         id="about"
-        className="w-full h-dvh flex flex-col gap-10 justify-center items-start bg-neutral-100 px-16 py-32"
+        className="w-full h-dvh min-h-fit flex flex-col gap-10 justify-center items-start bg-neutral-100 px-16 py-32 "
       >
         <h1 className="text-4xl text-black font-semibold">WHY UAEYFC?</h1>
         <div className="flex gap-10 justify-center items-center">
@@ -74,7 +74,7 @@ export default function HomePage() {
       </section>
       <section
         id="programs"
-        className="w-full h-dvh flex flex-col gap-10 justify-start items-center bg-neutral-100 px-16 py-32"
+        className="w-full h-dvh min-h-fit flex flex-col gap-10 justify-start items-center bg-neutral-100 px-16 py-32 "
       >
         <div className="flex flex-col justify-center items-center gap-4">
           <h1 className="text-4xl text-black font-semibold">PROGRAMS</h1>
@@ -84,7 +84,7 @@ export default function HomePage() {
       </section>
       <section
         id="contact"
-        className="w-full h-dvh flex gap-4 justify-start items-center bg-neutral-100 px-16 py-32"
+        className="w-full h-dvh min-h-fit flex gap-4 justify-start items-center bg-neutral-100 px-16 py-32 "
       >
         <div className="flex flex-col gap-4 justify-center items-center w-1/2">
           <h1 className="text-4xl text-black font-semibold">CONTACT US</h1>
