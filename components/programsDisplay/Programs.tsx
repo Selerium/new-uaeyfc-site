@@ -4,7 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 
-export default function Programs() {
+export default function Programs(props: {
+  fullView?: boolean
+}) {
   const programsInfo = [
     {
       name: "BIG WEEKEND",
@@ -102,11 +104,11 @@ export default function Programs() {
   });
 
   return (
-    <div className="select-none cursor-grab active:cursor-grabbing scroll-container flex justify-start items-center overflow-x-hidden gap-10 w-full h-fit py-20 text-black relative">
+    <div className={`select-none ${props.fullView ? 'flex-wrap justify-center' : 'scroll-container cursor-grab active:cursor-grabbing justify-start' } flex items-center overflow-x-hidden gap-10 w-full h-fit py-20 text-black relative`}>
       {programsInfo.map((program) => (
         <div
           key={program.name}
-          className="flex flex-col rounded-lg min-w-1/4 min-h-fit border border-neutral-300 overflow-hidden bg-white transition-all hover:shadow-xl hover:-translate-y-2"
+          className="flex flex-col rounded-lg min-w-[450px] w-[450px] min-h-fit border border-neutral-300 overflow-hidden bg-white transition-all hover:shadow-xl hover:-translate-y-2"
         >
           <div className="w-full aspect-video relative">
             <Image
@@ -132,7 +134,7 @@ export default function Programs() {
             </div>
             <Link
               className="select-none w-full text-center p-4 rounded-lg border border-neutral-300 hover:bg-black hover:text-white font-semibold transition-all"
-              href={program.pageLink}
+              href={`/programs${program.pageLink}`}
             >
               LEARN MORE
             </Link>

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Navbar(props: {
@@ -13,16 +14,15 @@ export default function Navbar(props: {
 }) {
   const [flipColor, setFlipColor] = useState(false);
   const [chosenElement, setChosenElement] = useState(0);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
-      setFlipColor(window.scrollY > (window.innerHeight - 25));
-      console.log(window.scrollY - 25);
-      console.log(window.innerHeight);
-      console.log(chosenElement);
+      setFlipColor(window.scrollY > ((window.innerHeight / 2) - 25));
     };
-    
+
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -32,8 +32,8 @@ export default function Navbar(props: {
         <Image src="/logo.png" width={200} height={0} className={`w-48 ${flipColor ? '' : 'invert-100 grayscale'}`} alt="UAEYFC Logo" />
       </Link>
       <div className="flex gap-10">
-        {props.paths.map((path, idx) => (
-          <Link className={idx + 1 == chosenElement ? 'font-semibold' : 'font-normal'} key={path.name} href={path.link}>{path.name}</Link>
+        {props.paths.map((path) => (
+          <Link className={path.link.toLowerCase() == pathname.toLowerCase() ? 'font-semibold' : 'font-normal'} key={path.name} href={path.link}>{path.name}</Link>
         ))}
       </div>
       {props.sidebutton && (

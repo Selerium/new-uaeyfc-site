@@ -1,7 +1,7 @@
 import EmblaCarousel from "@/components/carousel/carousel";
 import ContactForm from "@/components/form/ContactForm";
 import Programs from "@/components/programsDisplay/Programs";
-import { Church, Globe, Heart, Instagram } from "lucide-react";
+import { Church, Facebook, Globe, Heart, Instagram, Youtube } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -95,20 +95,6 @@ export default function HomePage() {
         </div>
         <ContactForm />
       </section>
-      <footer className="h-48 px-16 py-8 border-t border-neutral-300 bg-neutral-800 text-white flex justify-between">
-        <div>
-          <Image src="/logo.png" width={200} height={0} className={`w-48 invert grayscale-100`} alt="UAEYFC Logo" />
-        </div>
-        <div className="flex flex-col gap-2 w-1/12">
-          <Link href='/about' className="font-semibold">About</Link>
-          <Link href='/programs' className="font-semibold">Programs</Link>
-          <Link href='/blog' className="font-semibold">Blog</Link>
-        </div>
-        <div className="flex flex-col gap-2 w-1/2">
-          <Link href='https://instagram.com/uaeyfc' className="font-semibold">Instagram</Link>
-          <Link href='/about' className="font-semibold">Facebook</Link>
-        </div>
-      </footer>
     </div>
   );
 }
