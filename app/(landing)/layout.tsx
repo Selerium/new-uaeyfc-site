@@ -21,17 +21,17 @@ export default function HomeLayout({
           sidebutton={{ name: "BLOG", link: "/blog" }}
         />
         {children}
-        <footer className="h-fit px-16 py-24 border-t border-neutral-300 bg-neutral-800 text-white flex justify-between">
-        <div className="w-1/3">
+        <footer className="h-fit px-8 lg:px-16 py-24 border-t border-neutral-300 bg-neutral-800 text-white flex lg:flex-row flex-col gap-8 lg:gap-0 lg:items-start items-center justify-between">
+        <div className="w-full flex justify-center lg:justify-start items-center lg:w-1/3">
           <Image src="/logo.png" width={200} height={0} className={`w-48 invert grayscale-100`} alt="UAEYFC Logo" />
         </div>
-        <div className="flex flex-col items-start gap-2 w-1/3">
+        <div className="flex flex-col items-center lg:items-start gap-2 w-full lg:w-1/3">
           <Link href='/about' className="font-semibold w-fit h-fit">About</Link>
           <Link href='/programs' className="font-semibold w-fit h-fit">Programs</Link>
           <Link href='/#contact' className="font-semibold w-fit h-fit">Contact</Link>
           <Link href='/blog' className="font-semibold w-fit h-fit">Blog</Link>
         </div>
-        <div className="flex gap-4 w-1/3">
+        <div className="flex justify-center items-center gap-4 w-full lg:w-1/3">
           <Link href='https://instagram.com/uaeyfc' className="w-fit h-fit"><Instagram className="w-8 h-8" /></Link>
           <Link href='https://instagram.com/uaeyfc' className="w-fit h-fit"><Youtube className="w-8 h-8" /></Link>
           <Link href='https://instagram.com/uaeyfc' className="w-fit h-fit"><Facebook className="w-8 h-8" /></Link>

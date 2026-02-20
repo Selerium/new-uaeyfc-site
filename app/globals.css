@@ -3,16 +3,22 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-
-  button {
-    @apply rounded-lg p-4 border border-neutral-300 hover:bg-white hover:text-black transition-all cursor-pointer font-semibold;
-  }
   
   scroll-behavior: smooth;
 }
 
 .button {
   @apply rounded-lg p-4 border border-neutral-300 hover:bg-white hover:text-black transition-all cursor-pointer font-semibold;
+}
+
+.scroll-container {
+  ::-webkit-scrollbar-corner {
+    display: none;
+  }
+
+  ::-webkit-scrollbar-track {
+    display: none;
+  }
 }
 
 

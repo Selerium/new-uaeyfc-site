@@ -10,10 +10,15 @@ export default function ContactForm() {
   const [message, setMessage] = useState<string>("");
 
   return (
-    <form className="flex flex-wrap gap-4 w-full max-w-2xl rounded-lg border border-neutral-300 p-4 bg-white text-black">
-      <div className="flex flex-col gap-2 grow basis-1/3 max-w-1/2">
+    <form
+      action="https://formsubmit.co/01d0d0d8c86fb790a085dcde70e63051"
+      method="POST"
+      className="flex flex-wrap gap-4 w-full max-w-2xl rounded-lg border border-neutral-300 p-4 bg-white text-black"
+    >
+      <div className="flex flex-col gap-2 grow basis-1/3 max-w-full lg:max-w-1/2">
         <label>First Name</label>
         <input
+          name="First Name"
           value={firstname}
           onChange={(e) => setFirstname(e.target.value)}
           className="border border-neutral-300 rounded-lg p-2 font-semibold user-invalid:border-red-400 user-valid:border-green-600"
@@ -22,9 +27,10 @@ export default function ContactForm() {
           required
         />
       </div>
-      <div className="flex flex-col gap-2 grow basis-1/3 max-w-1/2">
+      <div className="flex flex-col gap-2 grow basis-1/3 max-w-full lg:max-w-1/2">
         <label>Last Name</label>
         <input
+          name="Last Name"
           value={lastname}
           onChange={(e) => setLastname(e.target.value)}
           className="border border-neutral-300 rounded-lg p-2 font-semibold user-invalid:border-red-400 user-valid:border-green-600"
@@ -33,9 +39,10 @@ export default function ContactForm() {
           required
         />
       </div>
-      <div className="flex flex-col gap-2 grow basis-1/3 max-w-1/2">
+      <div className="flex flex-col gap-2 grow basis-1/3 max-w-full lg:max-w-1/2">
         <label>WhatsApp (with country code)</label>
         <input
+          name="WhatsApp"
           value={whatsapp}
           onChange={(e) => {
             setWhatsapp(e.target.value.trim().slice(0, 13));
@@ -47,9 +54,10 @@ export default function ContactForm() {
           required
         />
       </div>
-      <div className="flex flex-col gap-2 grow basis-1/3 max-w-1/2">
+      <div className="flex flex-col gap-2 grow basis-1/3 max-w-full lg:max-w-1/2">
         <label>Email</label>
         <input
+          name="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="border border-neutral-300 rounded-lg p-2 font-semibold user-invalid:border-red-400 user-valid:border-green-600"
@@ -61,6 +69,7 @@ export default function ContactForm() {
       <div className="flex flex-col gap-2 w-full">
         <label>Write Us A Message</label>
         <textarea
+          name="Message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           className="resize-none border border-neutral-300 rounded-lg p-2 font-semibold user-invalid:border-red-400 user-valid:border-green-600"
@@ -70,16 +79,23 @@ export default function ContactForm() {
         />
       </div>
       <div className="flex flex-col gap-2 w-full">
-        <button type="submit" className="w-full bg-black text-white hover:font-semibold">
+        <button
+          type="submit"
+          className="w-full bg-black text-white hover:font-semibold"
+        >
           SUBMIT
         </button>
-        <button type="reset" className="w-full hover:font-semibold" onClick={() => {
-          setFirstname('');
-          setLastname('');
-          setWhatsapp('');
-          setEmail('');
-          setMessage('');
-        }}>
+        <button
+          type="reset"
+          className="w-full hover:font-semibold"
+          onClick={() => {
+            setFirstname("");
+            setLastname("");
+            setWhatsapp("");
+            setEmail("");
+            setMessage("");
+          }}
+        >
           CLEAR
         </button>
       </div>
