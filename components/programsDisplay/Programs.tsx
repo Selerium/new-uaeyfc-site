@@ -79,20 +79,20 @@ export default function Programs(props: { fullView?: boolean }) {
   ];
 
   useEffect(() => {
-    const slider = window.document.querySelector(".scroll-container");
+    const slider: any = window.document.querySelector(".scroll-container");
     let isDown = false;
     let startX: number;
     let scrollLeft: number;
 
     if (slider) {
-      slider.addEventListener("mousedown", (e) => {
+      slider.addEventListener("mousedown", (e: any) => {
         isDown = true;
         startX = e.pageX - slider.offsetLeft;
         scrollLeft = slider.scrollLeft;
       });
       slider.addEventListener("mouseup", () => (isDown = false));
       slider.addEventListener("mouseleave", () => (isDown = false));
-      slider.addEventListener("mousemove", (e) => {
+      slider.addEventListener("mousemove", (e: any) => {
         if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - slider.offsetLeft;

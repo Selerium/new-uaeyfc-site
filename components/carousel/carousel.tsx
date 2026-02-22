@@ -12,7 +12,7 @@ export default function EmblaCarousel(props: {
   const goToPrev = () => emblaApi?.scrollPrev();
   const goToNext = () => emblaApi?.scrollNext();
 
-  const [scrollSnaps, setScrollSnaps] = useState([]);
+  const [scrollSnaps, setScrollSnaps] = useState<number[] | undefined>([]);
   const [selectedSnap, setSelectedSnap] = useState(0);
 
   const goTo = (index: number) => emblaApi?.scrollTo(index);
@@ -27,8 +27,8 @@ export default function EmblaCarousel(props: {
     setupSnaps(emblaApi);
     setActiveSnap(emblaApi);
 
-    emblaApi.on("reinit", setupSnaps);
-    emblaApi.on("reinit", setActiveSnap);
+    emblaApi.on("reInit", setupSnaps);
+    emblaApi.on("reInit", setActiveSnap);
     emblaApi.on("select", setActiveSnap);
   }, [emblaApi]);
 
@@ -58,7 +58,7 @@ export default function EmblaCarousel(props: {
       </div>
 
       <div className="embla__dots flex gap-4 justify-center items-center">
-        {scrollSnaps.map((_, index) => (
+        {scrollSnaps?.map((_, index) => (
           <div
             className={"cursor-pointer rounded-full w-4 h-4 border border-neutral-600 embla__dot".concat(
               index === selectedSnap
