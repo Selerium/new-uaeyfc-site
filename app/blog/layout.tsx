@@ -1,7 +1,7 @@
 import Navbar from "@/components/navbar/navbar";
 import { jost } from "../layout";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { Facebook, Instagram, Youtube } from "lucide-react";
 
 export default function BlogHomeLayout({

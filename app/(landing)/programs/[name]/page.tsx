@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 
 export async function generateStaticParams() {
   return [{ name: "big-weekend" }];

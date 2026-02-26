@@ -10,7 +10,6 @@ export default async function BlogHome({
     params: Promise<{ page: string }>
 }) {
     const { page } = await params;
-
     return (
         <div className="flex justify-center items-start">
             <BlogPosts all={true} page={page ? Number(page) : 1} />

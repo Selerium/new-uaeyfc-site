@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Jost } from 'next/font/google';
 import "./globals.css";
+import { ViewTransitions } from "next-view-transitions";
 
 export const metadata: Metadata = {
   title: "UAEYFC",
@@ -19,11 +20,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={jost.className}>
-      <body
-      >
-        {children}
-      </body>
-    </html>
+    <ViewTransitions>
+      <html lang="en" className={jost.className}>
+        <body
+        >
+          {children}
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }

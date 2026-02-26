@@ -1,6 +1,6 @@
 import { supabase } from "@/supabase/client";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 
 export default async function BlogPosts(props: { all: boolean, page?: number }) {
     let { count: blogCount } = await supabase.from('posts').select('*', { count: 'exact', head: true });

@@ -2,7 +2,7 @@
 
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from 'next-view-transitions';
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -29,7 +29,7 @@ export default function Navbar(props: {
   }, []);
 
   return (
-    <nav className={`transition-all ${props.notAbsolute ? 'sticky' : 'fixed'} flex items-center justify-between top-0 py-8 px-8 lg:px-16 w-full z-50 ${flipColor || menu || props.notAbsolute ? 'text-black bg-white/75 backdrop-blur-2xl' : 'text-white'}`}>
+    <nav className={`transition-all ${props.notAbsolute ? 'sticky' : 'fixed'} flex items-center justify-between top-0 py-8 px-8 lg:px-16 w-full z-40 ${flipColor || menu || props.notAbsolute ? 'text-black bg-white/75 backdrop-blur-2xl' : 'text-white'}`}>
       <Link href="/" className="not-lg:w-1/3 z-30">
         <Image src="/logo.png" width={200} height={0} className={`w-48 ${flipColor || menu || props.notAbsolute ? '' : 'invert-100 grayscale'}`} alt="UAEYFC Logo" />
       </Link>
