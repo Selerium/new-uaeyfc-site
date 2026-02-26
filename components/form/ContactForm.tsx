@@ -81,13 +81,13 @@ export default function ContactForm() {
       <div className="flex flex-col gap-2 w-full">
         <button
           type="submit"
-          className="w-full bg-black text-white hover:font-semibold"
+          className="button w-full bg-black text-white hover:font-semibold"
         >
           SUBMIT
         </button>
         <button
           type="reset"
-          className="w-full hover:font-semibold"
+          className="button w-full hover:font-semibold"
           onClick={() => {
             setFirstname("");
             setLastname("");

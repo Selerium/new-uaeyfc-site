@@ -14,7 +14,7 @@ export default function Programs(props: { fullView?: boolean }) {
       imageAlt: "A picture of Big Weekend",
       pageLink: "/big-weekend",
       active: true,
-      nextDate: "NOV 2026",
+      nextDate: "NOV '26",
     },
     {
       name: "LAUNCH CONFERENCE",
@@ -24,7 +24,7 @@ export default function Programs(props: { fullView?: boolean }) {
       imageAlt: "",
       pageLink: "/launch-conference",
       active: true,
-      nextDate: "FEB 2027",
+      nextDate: "FEB '27",
     },
     {
       name: "OUTREACH JAPAN",
@@ -34,7 +34,7 @@ export default function Programs(props: { fullView?: boolean }) {
       imageAlt: "",
       pageLink: "/outreach-japan",
       active: true,
-      nextDate: "JUL 2026",
+      nextDate: "JUL '26",
     },
     {
       name: "TANGIBLE SUPPORT",
@@ -44,7 +44,7 @@ export default function Programs(props: { fullView?: boolean }) {
       imageAlt: "",
       pageLink: "/event-name",
       active: true,
-      nextDate: "SPRING 2026",
+      nextDate: "MAY '26",
     },
     {
       name: "EQUIP/EQUIP+",
@@ -54,7 +54,7 @@ export default function Programs(props: { fullView?: boolean }) {
       imageAlt: "",
       pageLink: "/event-name",
       active: true,
-      nextDate: "APRIL 2026",
+      nextDate: "APR '26",
     },
     {
       name: "ILLUMINATE",
@@ -64,7 +64,7 @@ export default function Programs(props: { fullView?: boolean }) {
       imageAlt: "",
       pageLink: "/event-name",
       active: false,
-      nextDate: "SEP 2026",
+      nextDate: "SEP '26",
     },
     {
       name: "TCK/CCK TRAINING",
@@ -74,7 +74,7 @@ export default function Programs(props: { fullView?: boolean }) {
       imageAlt: "",
       pageLink: "/event-name",
       active: false,
-      nextDate: "SEP 2026",
+      nextDate: "SEP '26",
     },
   ];
 

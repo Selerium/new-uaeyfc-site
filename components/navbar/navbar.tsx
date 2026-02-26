@@ -12,6 +12,7 @@ export default function Navbar(props: {
     name: string;
     link: string;
   };
+  notAbsolute?: boolean
 }) {
   const [flipColor, setFlipColor] = useState(false);
   const [menu, setMenu] = useState(false);
@@ -28,9 +29,9 @@ export default function Navbar(props: {
   }, []);
 
   return (
-    <nav className={`transition-all fixed flex items-center justify-between top-0 py-8 px-8 lg:px-16 w-full z-50 ${flipColor || menu ? 'text-black bg-white/75 backdrop-blur-2xl' : 'text-white'}`}>
+    <nav className={`transition-all ${props.notAbsolute ? 'sticky' : 'fixed'} flex items-center justify-between top-0 py-8 px-8 lg:px-16 w-full z-50 ${flipColor || menu || props.notAbsolute ? 'text-black bg-white/75 backdrop-blur-2xl' : 'text-white'}`}>
       <Link href="/" className="not-lg:w-1/3 z-30">
-        <Image src="/logo.png" width={200} height={0} className={`w-48 ${flipColor || menu ? '' : 'invert-100 grayscale'}`} alt="UAEYFC Logo" />
+        <Image src="/logo.png" width={200} height={0} className={`w-48 ${flipColor || menu || props.notAbsolute ? '' : 'invert-100 grayscale'}`} alt="UAEYFC Logo" />
       </Link>
       <div className="hidden lg:flex gap-10">
         {props.paths.map((path) => (
@@ -42,13 +43,13 @@ export default function Navbar(props: {
       )}
       {!menu && <Menu className="w-6 h-6 lg:hidden z-30" onClick={() => {setMenu(true)}} />}
       {menu && <X className="w-6 h-6 lg:hidden z-30" onClick={() => {setMenu(false)}} />}
-      <div className={`fixed top-0 left-0 bg-white/100 backdrop-blur-2xl w-dvw h-dvh flex flex-col justify-center items-center text-black transition-all ${menu ? 'opacity-100' : 'opacity-0 -translate-y-full pointer-options-none'}`}>
+      <div className={`fixed top-0 left-0 bg-white backdrop-blur-2xl w-dvw h-dvh flex flex-col justify-center items-center text-black transition-all ${menu ? 'opacity-100' : 'opacity-0 -translate-y-full pointer-options-none'}`}>
         <div className="flex flex-col items-center gap-10 z-20">
           {props.paths.map((path) => (
             <Link onClick={() => setMenu(false)} className={path.link.toLowerCase() == pathname.toLowerCase() ? 'font-semibold' : 'font-normal'} key={path.name} href={path.link}>{path.name}</Link>
           ))}
           {props.sidebutton && (
-            <Link onClick={() => setMenu(false)} className="hidden lg:block w-48 text-right" href={props.sidebutton.link}>{props.sidebutton.name}</Link>
+            <Link onClick={() => setMenu(false)} className={props.sidebutton.link == pathname.toLowerCase() ? 'font-semibold' : 'font-normal'}  href={props.sidebutton.link}>{props.sidebutton.name}</Link>
           )}
         </div>
       </div>

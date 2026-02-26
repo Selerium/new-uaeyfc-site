@@ -12,11 +12,9 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { supabase } from "@/supabase/client";
+import BlogPosts from "@/components/blogposts/BlogPosts";
 
 export default async function HomePage() {
-  let { data: blogPosts } = await supabase.from('posts').select('*').range(0,2);
-  console.log(blogPosts);
-
   return (
     <div className="w-full h-fit">
       <section className="w-full h-dvh min-h-fit flex flex-col gap-10 justify-center items-center">
@@ -43,19 +41,20 @@ export default async function HomePage() {
       </section>
       <section
         id="about"
-        className="w-full h-dvh min-h-fit flex flex-col gap-4 lg:gap-10 justify-center items-start bg-neutral-100 px-8 lg:px-16 py-32 "
+        className="w-full h-dvh min-h-fit flex flex-col gap-4 lg:gap-10 justify-center items-center bg-neutral-100 px-8 lg:px-16 py-32 "
       >
         <h1 className="text-4xl text-black font-semibold">WHAT WE DO</h1>
-        <div className="flex flex-col lg:flex-row gap-10 justify-center items-center">
+        <p className="text-lg text-black w-full max-w-4xl text-center">
+          UAEYFC is committed to creating opportunities that allow teens and
+          young people to grow and build each other up in a safe
+          environment. We want to see young people make their own decisions
+          and choices to be authentic and genuine in their walk in life,
+          equipping them with the knowledge and skills to be the best
+          version of themselves.
+        </p>
+        <div className="flex flex-col lg:flex-row gap-10 justify-center items-center w-full">
           <div className="w-full lg:w-1/2 h-full flex flex-col justify-start items-start gap-4">
-            <p className="text-lg text-black w-full">
-              UAEYFC is committed to creating opportunities that allow teens and
-              young people to grow and build each other up in a safe
-              environment. We want to see young people make their own decisions
-              and choices to be authentic and genuine in their walk in life,
-              equipping them with the knowledge and skills to be the best
-              version of themselves.
-            </p>
+
             <div className="flex flex-col gap-4 w-full text-black">
               <div className="grow flex flex-col justify-center items-center gap-4 p-4 bg-white border border-neutral-200 text-black shadow-sm rounded-lg">
                 <Church strokeWidth={1} className="w-16 h-16" />
@@ -89,9 +88,10 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+      <BlogPosts all={false} />
       <section
         id="programs"
-        className="w-full h-fit min-h-fit flex flex-col gap-10 items-center bg-neutral-100 px-8 lg:px-16"
+        className="w-full h-fit min-h-dvh flex flex-col gap-10 justify-center items-center bg-neutral-100 px-8 lg:px-16"
       >
         <div className="flex flex-col justify-center items-center gap-4">
           <h1 className="text-4xl text-black font-semibold">PROGRAMS</h1>
