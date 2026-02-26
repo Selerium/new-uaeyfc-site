@@ -11,8 +11,12 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { supabase } from "@/supabase/client";
 
-export default function HomePage() {
+export default async function HomePage() {
+  let { data: blogPosts } = await supabase.from('posts').select('*').range(0,2);
+  console.log(blogPosts);
+
   return (
     <div className="w-full h-fit">
       <section className="w-full h-dvh min-h-fit flex flex-col gap-10 justify-center items-center">
