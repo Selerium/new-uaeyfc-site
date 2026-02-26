@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  basePath: (process.env.staging) ? '' : '/new-uaeyfc-site'
+  basePath: (process.env.NEXT_PUBLIC_STAGING) ? '' : '/new-uaeyfc-site'
 };
 
 export default nextConfig;

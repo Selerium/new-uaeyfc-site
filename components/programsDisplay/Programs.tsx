@@ -1,5 +1,6 @@
 "use client";
 
+import { basePath, staging } from "@/supabase/client";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
@@ -10,7 +11,7 @@ export default function Programs(props: { fullView?: boolean }) {
       name: "BIG WEEKEND",
       description:
         "Big Weekend is UAEYFC's annual youth conference, inviting teens and youth leaders from across the UAE for a weekend of workshops, teaching, and fellowship.",
-      imageUrl: "/big-weekend.jpg",
+      imageUrl: `${staging ? basePath : ''}/big-weekend.jpg`,
       imageAlt: "A picture of Big Weekend",
       pageLink: "/big-weekend",
       active: true,
@@ -20,7 +21,7 @@ export default function Programs(props: { fullView?: boolean }) {
       name: "LAUNCH CONFERENCE",
       description:
         "Launch is an event that helps graduating students with the transition from high school to university and beyond. It is a significant event to help facilitate the transition from teenage to adulthood.",
-      imageUrl: "/launch-conf.jpg",
+      imageUrl: `${staging ? basePath : ''}/launch-conf.jpg`,
       imageAlt: "",
       pageLink: "/launch-conference",
       active: true,
@@ -30,7 +31,7 @@ export default function Programs(props: { fullView?: boolean }) {
       name: "OUTREACH JAPAN",
       description:
         "Outreach is an opportunity for young people to encounter volunteer work and gain experience in supporting communities, all while serving the less supported to then have the chance to be encouraged and motivated.",
-      imageUrl: "/outreach-japan.jpg",
+      imageUrl: `${staging ? basePath : ''}/outreach-japan.jpg`,
       imageAlt: "",
       pageLink: "/outreach-japan",
       active: true,
@@ -40,7 +41,7 @@ export default function Programs(props: { fullView?: boolean }) {
       name: "TANGIBLE SUPPORT",
       description:
         "A podcast created with the intention to provide tangible resources for young people who grew up and/or live in the Gulf pertaining to their multicultural needs and realities.",
-      imageUrl: "/tangible-support.jpg",
+      imageUrl: `${staging ? basePath : ''}/tangible-support.jpg`,
       imageAlt: "",
       pageLink: "/event-name",
       active: true,
@@ -50,7 +51,7 @@ export default function Programs(props: { fullView?: boolean }) {
       name: "EQUIP/EQUIP+",
       description:
         "Equip and Equip+ are youth leader training/retreat events that provide a space for youth leaders to be trained with leadership skills and be refreshed mentally alongside leaders across the UAE.",
-      imageUrl: "/equip.jpg",
+      imageUrl: `${staging ? basePath : ''}/equip.jpg`,
       imageAlt: "",
       pageLink: "/event-name",
       active: true,
@@ -60,7 +61,7 @@ export default function Programs(props: { fullView?: boolean }) {
       name: "ILLUMINATE",
       description:
         "A one day event for teens and youth to practically grow in knowledge and skills while developing community outside of their usual environments.",
-      imageUrl: "/illuminate.jpg",
+      imageUrl: `${staging ? basePath : ''}/illuminate.jpg`,
       imageAlt: "",
       pageLink: "/event-name",
       active: false,
@@ -70,7 +71,7 @@ export default function Programs(props: { fullView?: boolean }) {
       name: "TCK/CCK TRAINING",
       description:
         "Training events to educate about the TCK/CCK world, for parents to learn about its impact on their kids, and for youth to learn about how this environment affects their life & how to live through and around it.",
-      imageUrl: "/tck-cck.jpg",
+      imageUrl: `${staging ? basePath : ''}/tck-cck.jpg`,
       imageAlt: "",
       pageLink: "/event-name",
       active: false,
