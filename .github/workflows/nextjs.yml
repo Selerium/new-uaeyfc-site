@@ -4,6 +4,10 @@
 #
 name: Deploy Next.js site to Pages
 
+env:
+  NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+  NEXT_PUBLIC_SUPABASE_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_KEY }}
+
 on:
   # Runs on pushes targeting the default branch
   push:
