@@ -1,11 +1,14 @@
 import BlogPosts from "@/components/blogposts/BlogPosts";
-import { supabase } from "@/supabase/client";
+
+export async function generateStaticParams() {
+    return [{ page: ['1'] }, { page: ['2'] }, { page: ['3'] }, { page: [] },];
+}
 
 export default async function BlogHome({
     params,
-  }: {
+}: {
     params: Promise<{ page: string }>
-  }) {
+}) {
     const { page } = await params;
 
     return (
