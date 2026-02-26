@@ -10,14 +10,13 @@ export default function BlogHomeLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={jost.className}>
-      <body>
-        <Navbar
-          paths={[{ link: '/', name: 'HOME' }, { link: '/blog', name: 'BLOG' }]}
-          notAbsolute={true}
-        />
-        {children}
-        <footer className="h-fit px-8 lg:px-16 py-24 border-t border-neutral-300 bg-neutral-800 text-white flex lg:flex-row flex-col gap-8 lg:gap-0 lg:items-start items-center justify-between">
+    <div className="w-full h-full">
+      <Navbar
+        paths={[{ link: '/', name: 'HOME' }, { link: '/blog', name: 'BLOG' }]}
+        notAbsolute={true}
+      />
+      {children}
+      <footer className="h-fit px-8 lg:px-16 py-24 border-t border-neutral-300 bg-neutral-800 text-white flex lg:flex-row flex-col gap-8 lg:gap-0 lg:items-start items-center justify-between">
         <div className="w-full flex justify-center lg:justify-start items-center lg:w-1/3">
           <Image src="/logo.png" width={200} height={0} className={`w-48 invert grayscale-100`} alt="UAEYFC Logo" />
         </div>
@@ -33,7 +32,6 @@ export default function BlogHomeLayout({
           <Link href='https://instagram.com/uaeyfc' className="w-fit h-fit"><Facebook className="w-8 h-8" /></Link>
         </div>
       </footer>
-      </body>
-    </html>
+    </div>
   );
 }

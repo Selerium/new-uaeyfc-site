@@ -3,29 +3,31 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default async function BlogPosts(props: { all: boolean, page?: number }) {
+    let { count: blogCount } = await supabase.from('posts').select('*', { count: 'exact', head: true });
+    const numPages = (blogCount && blogCount > 1 ? Math.ceil(blogCount / 10) : 1)
+    let { data: blogPosts } = await supabase.from('posts').select('title, brief, image_url, slug').range(10 * ((props.page ?? 1) - 1), props.all ? 9 : 2).order('title');
 
-    let { data: blogPosts } = await supabase.from('posts').select('title, brief, image_url, slug').range(10 * ((props.page ?? 1) - 1), props.all ? 9 : 2);
-
-    blogPosts = [
-        {
-            brief: 'yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa ',
-            image_url: '/test1.png',
-            slug: '',
-            title: 'yappa yappa yappa '
-        },
-        {
-            brief: 'yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa ',
-            image_url: '/test1.png',
-            slug: '',
-            title: 'yappa yappa yappa '
-        },
-        {
-            brief: 'yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa ',
-            image_url: '/test1.png',
-            slug: '',
-            title: 'yappa yappa yappa '
-        },
-    ]
+    // for testing
+    // blogPosts = [
+    //     {
+    //         brief: 'yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa ',
+    //         image_url: '/test1.png',
+    //         slug: '',
+    //         title: 'yappa yappa yappa '
+    //     },
+    //     {
+    //         brief: 'yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa ',
+    //         image_url: '/test1.png',
+    //         slug: '',
+    //         title: 'yappa yappa yappa '
+    //     },
+    //     {
+    //         brief: 'yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa yappa ',
+    //         image_url: '/test1.png',
+    //         slug: '',
+    //         title: 'yappa yappa yappa '
+    //     },
+    // ]
 
     return ((props.all == true || (blogPosts && blogPosts?.length > 0)) &&
         <section
@@ -54,6 +56,15 @@ export default async function BlogPosts(props: { all: boolean, page?: number }) 
                 }
             </div>
             {!props.all && <Link href='/blog' className="button bg-black hover:bg-white">VIEW ALL</Link>}
+            {props.all && blogPosts?.length != 0 &&
+                <div className="flex gap-2 justify-center items-center">
+                    {Array.from({ length: numPages }, (value: number, i) =>
+                        <Link key={i} href={`/blog/${i + 1}`} className={`${((props.page && props.page == i + 1) || (!props.page && i == 0)) ? 'bg-black hover:bg-white text-white hover:text-black' : 'bg-white hover:bg-black text-black hover:text-white'} text-center p-3 border-neutral-200 rounded-lg border transition-all font-medium`}>
+                            {i + 1}
+                        </Link>
+                    )}
+                </div>
+            }
         </section>
     );
 }
